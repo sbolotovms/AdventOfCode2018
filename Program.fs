@@ -9,6 +9,6 @@ module Main =
     [<EntryPoint>]
     let main argv = 
         let file = new System.IO.StreamReader("../../Tasks/input2.txt")
-        printfn "%A" <| task2 file
+        printfn "%A" <| task2and2 file
         System.Console.ReadKey() |> ignore
         0 // return an integer exit code
