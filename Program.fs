@@ -5,7 +5,10 @@ namespace Advent2018
 module Main =
     [<EntryPoint>]
     let main argv = 
-        let file = new System.IO.StreamReader("../../Tasks/input3.txt")
+        let name = "../../Tasks/input3.txt"
+        let file = new System.IO.StreamReader(name)
         printfn "%A" <| Task3.task3 file
+        let file = new System.IO.StreamReader(name)
+        printfn "%A" <| Task3.task3and1 file
         System.Console.ReadKey() |> ignore
         0 // return an integer exit code

@@ -32,3 +32,16 @@ module Task3 =
             |> Array2D.iter (fun x -> if x > 1 then res <- res + 1)
 
         res
+
+    let task3and1 (file: StreamReader) =
+        let reqs = getRequests file
+
+        let overlaps (a: Claim) (b: Claim) =
+            a.id <> b.id &&
+                not (b.left > a.left + a.width - 1 || a.left > b.left + b.width - 1 ||
+                        b.top > a.top + a.height - 1 || a.top > b.top + b.height - 1)
+
+        let res = reqs
+                  |> Array.find (fun claim -> not (reqs |> Array.exists (overlaps claim)))
+
+        res.id
