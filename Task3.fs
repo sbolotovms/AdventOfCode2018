@@ -22,8 +22,8 @@ module Task3 =
 
         reqs
         |> Array.iter (fun claim ->
-            for i in claim.left..(claim.left + claim.width) do
-                for j in claim.top..(claim.top + claim.height) do
+            for i in claim.left..(claim.left + claim.width - 1) do
+                for j in claim.top..(claim.top + claim.height - 1) do
                     Array2D.set fabric i j (fabric.[i, j] + 1))
 
         let mutable res = 0
